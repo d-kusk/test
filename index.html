@@ -9,20 +9,30 @@
 <body>
   <h1>Hello</h1>
 
-  <form name="contact" netlify-honeypot="bot-field" action="thank-you" netlify>
+  <form id="my-form" name="contact" netlify-honeypot="bot-field" action="thank-you" netlify>
     <p class="hidden">
-      <label>Don’t fill this out:
-        <input name="bot-field">
+      <label>Name*:
+        <input name="bot-field" required>
       </label>
     </p>
     <p>
-      <label>Email:
-        <input type="text" name="name">
+      <label for="language">言語を選択してください*：</label>
+      <select id="language" name="language" required>
+        <option value="en">英語</option>
+        <option value="de">ドイツ語</option>
+        <option value="fr">フランス語</option>
+        <option value="ja" selected>日本語</option>
+        <option value="zh">中国語</option>
+      </select>
+    </p>
+    <p>
+      <label>Email*:
+        <input type="mail" name="name" required>
       </label>
     </p>
     <p>
-      <label>Message:
-        <textarea name="message"></textarea>
+      <label>Message*:
+        <textarea name="message" required></textarea>
       </label>
     </p>
     <p>
