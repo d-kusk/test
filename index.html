@@ -7,6 +7,40 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Hello, Github Pages</h1>
+  <h1>Hello</h1>
+
+  <form name="contact" netlify-honeypot="bot-field" action="thank-you" netlify>
+    <p class="hidden">
+      <label>Don’t fill this out:
+        <input name="bot-field">
+      </label>
+    </p>
+    <p>
+      <label>Email:
+        <input type="text" name="name">
+      </label>
+    </p>
+    <p>
+      <label>Message:
+        <textarea name="message"></textarea>
+      </label>
+    </p>
+    <p>
+      <button type=”submit”>Send</button>
+    </p>
+  </form>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
+  <script>
+    $("#my-form").submit(function (e) {
+      e.preventDefault();
+
+      var $form = $(this);
+      $.post($form.attr("action"), $form.serialize()).then(function () {
+        alert("Thank you!");
+      });
+    });
+  </script>
 </body>
 </html>
